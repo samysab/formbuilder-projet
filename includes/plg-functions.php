@@ -14,7 +14,7 @@ function plgesgi_addAdminLink(){
         'Plugin projet page',
         'Plugin contact projet',
         'manage_options',
-        'plugincontact/includes/plgesgi-acp-page.php',
+        'pluginformbuilder/includes/plgesgi-acp-page.php',
         '',
         'dashicons-chart-pie'
     );
