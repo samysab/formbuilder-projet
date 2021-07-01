@@ -36,8 +36,8 @@
       <change afterPath="$PROJECT_DIR$/../../../../SDK/esgi-auth/oauth-3IW2/oauth-server/data/app.data" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../SDK/esgi-auth/oauth-3IW2/oauth-server/data/code.data" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../SDK/esgi-auth/oauth-3IW2/oauth-server/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/toto-acp-page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/toto-functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../monplugin/includes/toto-acp-page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../monplugin/includes/toto-functions.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../phpWorkspace/PA_click-Collect/www/Core/Email.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../phpWorkspace/PHP S2/2 - Structure/Proxy/userProxy.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../phpWorkspace/PHP S2/3 - Comportement/Strategie/strategie_exo.php" afterDir="false" />
@@ -46,6 +46,9 @@
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/category.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/home.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/plg-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/plg-functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1tbzsWki8CiigNxNv0d1icni88S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -81,6 +84,7 @@
       <workItem from="1623052787589" duration="8264000" />
       <workItem from="1623420014580" duration="1037000" />
       <workItem from="1623763895448" duration="12000" />
+      <workItem from="1625130209399" duration="384000" />
     </task>
     <servers />
   </component>
