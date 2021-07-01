@@ -42,33 +42,39 @@ function plgesgi_TitiShortcode($atts){
     return "<p> x est {$a['x']} et y est {$a['y']} </p>";
 }
 
+add_action('widget_init', 'plgesgi_register_formWidgets');
 
-// Widget
+function plgesgi_register_formWidgets(){
+    register_widget('pluginFormBuilder_widget');
+}
 
-class PluginFormBuilder_widget extends WP_Widget{
 
-    public function __construct(){
+function plgFormBuilder_register_widget() {
+    register_widget( 'plgFormBuilder' );
+}
 
-        parent::__constuct(
-            'pluginFormBuilder_widget',
-            __('Widget Form Builder', 'mypluginlg'),
-            array(
-                'description' => __('widget simple issu du plugin du form builder', 'monpluginlg')
-            )
+add_action( 'widgets_init', 'plgFormBuilder_register_widget' );
+
+class plgFormBuilder extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+            'plgFormBuilder',
+            __('Widget Form builder', ' hstngr_widget_domain'),
+            array( 'description' => __( 'Widget Form builder', 'hstngr_widget_domain' ), )
         );
         add_action('wp_loaded', array($this, 'save_email'));
     }
-
     public function widget($args, $instance){
         //Front
         extract($args);
         $title = apply_filters('widget_title', $instance['title']);
         echo $before_widget.$before_title.$title.$after_title.'<form action="" method="post">
-                <label for="email_user"> Votre email :</label>
+                <label for="email_user"> Description :</label>
                 <input id="email_user" name="email_user" type="email">
                 <input type="submit">
               </form>'.
-              $after_widget;
+            $after_widget;
     }
 
     public function form($instance){
@@ -97,10 +103,4 @@ class PluginFormBuilder_widget extends WP_Widget{
             }
         }
     }
-}
-
-add_action('widget_init', 'plgesgi_formWidgets');
-
-function plgesgi_formWidgets(){
-    register_widget('PluginFormBuilder_widget');
 }
