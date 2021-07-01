@@ -79,16 +79,28 @@ class plgFormBuilder extends WP_Widget {
 
     public function form($instance){
         // Back
-        $title = isset($instance['title']) ? $instance['title'] : '';
+        $input1 = isset($instance['input1']) ? $instance['input1'] : '';
+        $select1 = isset($instance['select1']) ? $instance['select1'] : '';
+        $check1 = isset($instance['check1']) ? $instance['check1'] : '';
 
-        echo '<p><label for="'.$this->get_field_name('title').'"> Titre : </label>
-        <input id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.$title.'"></p>
-        ';
+        echo '<p><label for="'.$this->get_field_name('input1').'"> Nom : </label>
+        <input id="'.$this->get_field_id('input1').'" name="'.$this->get_field_name('input1').'" type="" value="'.$input1.'">
+        <select name="'.$this->get_field_name('select1').'">
+            <option value="text" '.(($select1=='text')?'selected="selected"':"").'>Texte</option>
+            <option value="email" '.(($select1=='email')?'selected="selected"':"").'>Email</option>
+            <option value="number" '.(($select1=='number')?'selected="selected"':"").'>Nombre</option>
+            <option value="date" '.(($select1=='date')?'selected="selected"':"").'>Date</option>
+        </select> 
+        <input id="'.$this->get_field_id('check1').'" name="'.$this->get_field_name('check1').'" type="checkbox" '.(($select1=='date')?'checked':"").'>
+        Activer</p>';
     }
 
     public function update($new_instance, $old_instance){
         $instance = array();
-        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+        if ($new_instance['check1'] === true) {
+            $instance['input1'] = (!empty($new_instance['input1'])) ? strip_tags($new_instance['input1']) : '';
+            $instance['select1'] = (!empty($new_instance['select1'])) ? strip_tags($new_instance['select1']) : '';
+        }
         return $instance;
     }
 
