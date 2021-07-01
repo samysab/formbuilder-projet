@@ -56,7 +56,7 @@ class PluginFormBuilder_widget extends WP_Widget{
         add_action('wp_loaded', array($this, 'save_email'));
     }
 
-    public function widget($args){
+    public function widget($args, $instance){
         //Front
         extract($args);
         $title = apply_filters('widget_title', $instance['title']);
