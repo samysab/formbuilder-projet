@@ -46,7 +46,7 @@
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/category.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/home.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../../wordpress/wp-content/themes/montheme/single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/plg-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/plg-functions.php" afterDir="false" />
     </list>
@@ -84,7 +84,7 @@
       <workItem from="1623052787589" duration="8264000" />
       <workItem from="1623420014580" duration="1037000" />
       <workItem from="1623763895448" duration="12000" />
-      <workItem from="1625130209399" duration="384000" />
+      <workItem from="1625130209399" duration="1388000" />
     </task>
     <servers />
   </component>
