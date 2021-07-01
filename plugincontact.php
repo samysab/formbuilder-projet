@@ -7,6 +7,8 @@
  * Description: Formulaire de contact
  */
 
+defined('ABSPATH') or die('Accès refusé');
+
 // Include functions file
 require_once plugin_dir_path(__FILE__).'includes/plg-functions.php';
 

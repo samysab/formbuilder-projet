@@ -1,5 +1,8 @@
 <?php
 // Test
+defined('ABSPATH') or die('Accès refusé');
+
+
 add_action('wp_footer', 'plgesgi_FooterAddText');
 
 function plgesgi_FooterAddText(){
