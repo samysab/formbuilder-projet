@@ -83,16 +83,42 @@ class plgFormBuilder extends WP_Widget {
         $select1 = isset($instance['select1']) ? $instance['select1'] : '';
         $check1 = isset($instance['check1']) ? $instance['check1'] : '';
 
-        echo '<p><label for="'.$this->get_field_name('input1').'"> Nom : </label>
-        <input id="'.$this->get_field_id('input1').'" name="'.$this->get_field_name('input1').'" type="" value="'.$input1.'">
-        <select name="'.$this->get_field_name('select1').'">
-            <option value="text" '.(($select1=='text')?'selected="selected"':"").'>Texte</option>
-            <option value="email" '.(($select1=='email')?'selected="selected"':"").'>Email</option>
-            <option value="number" '.(($select1=='number')?'selected="selected"':"").'>Nombre</option>
-            <option value="date" '.(($select1=='date')?'selected="selected"':"").'>Date</option>
+        $input2 = isset($instance['input2']) ? $instance['input2'] : '';
+        $select2 = isset($instance['select2']) ? $instance['select2'] : '';
+        $check2 = isset($instance['check2']) ? $instance['check2'] : '';
+
+        $input3 = isset($instance['input3']) ? $instance['input3'] : '';
+        $select3 = isset($instance['select3']) ? $instance['select3'] : '';
+        $check3 = isset($instance['check3']) ? $instance['check3'] : '';
+
+        $input4 = isset($instance['input4']) ? $instance['input4'] : '';
+        $select4 = isset($instance['select4']) ? $instance['select4'] : '';
+        $check4 = isset($instance['check4']) ? $instance['check4'] : '';
+
+
+        $this->createInput($input1,$select1,$check1);
+        $this->createInput($input2,$select2,$check2);
+        $this->createInput($input3,$select3,$check3);
+        $this->createInput($input4,$select4,$check4);
+
+
+    }
+
+
+    private function createInput($input,$select,$check){
+
+        echo '<p><label for="'.$this->get_field_name($input).'"> Nom : </label>
+        <input id="'.$this->get_field_id($input).'" name="'.$this->get_field_name($input).'" type="" value="'.$input.'">
+        <select name="'.$this->get_field_name($select).'">
+            <option value="text" '.(($select=='text')?'selected="selected"':"").'>Texte</option>
+            <option value="email" '.(($select=='email')?'selected="selected"':"").'>Email</option>
+            <option value="number" '.(($select=='number')?'selected="selected"':"").'>Nombre</option>
+            <option value="date" '.(($select=='date')?'selected="selected"':"").'>Date</option>
         </select> 
-        <input id="'.$this->get_field_id('check1').'" name="'.$this->get_field_name('check1').'" type="checkbox" '.(($select1=='date')?'checked':"").'>
-        Activer</p>';
+        <input id="'.$this->get_field_id($check).'" name="'.$this->get_field_name($check).'" type="checkbox">
+        Activer</p>'
+        ;
+
     }
 
     public function update($new_instance, $old_instance){
