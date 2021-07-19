@@ -67,14 +67,25 @@ class plgFormBuilder extends WP_Widget {
     }
     public function widget($args, $instance){
         //Front
+        global $wpdb;
+        $row = $wpdb->get_results( $wpdb->prepare("SELECT * FROM {$wpdb->prefix}contact_plugin WHERE status = 0"));
+
         extract($args);
         $title = apply_filters('widget_title', $instance['title']);
-        echo $before_widget.$before_title.$title.$after_title.'<form action="" method="post">
-                <label for="email_user"> Description :</label>
-                <input id="email_user" name="email_user" type="email">
-                <input type="submit">
+
+        //Formulaire
+        echo $before_widget.$before_title.$title.$after_title.'<form action="" method="post">';
+
+        foreach ($row as $input){
+        echo '  <h2 class="widget-title"> ';  echo $input->name;  echo ' </h2>
+                <input class="postform" id="'; echo $input->id; echo '" name="'; echo $input->name;  echo '" type="'; echo $input->type; echo'" placeholder=" ';  echo $input->type;  echo' " >';
+        }
+
+        echo '<h2 class="widget-title"> &nbsp; </h2>
+               <input type="submit">
               </form>'.
             $after_widget;
+
     }
 
     public function form($instance){
