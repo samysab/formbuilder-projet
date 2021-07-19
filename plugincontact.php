@@ -16,7 +16,7 @@ register_activation_hook(__FILE__, 'plgesgi_activation');
 
 function plgesgi_activation(){
     global $wpdb;
-    $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}contact_plugin (id INT AUTO_INCREMENT PRIMARY KEY , name VARCHAR(255) NOT NULL);");
+    $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}contact_plugin (id INT AUTO_INCREMENT PRIMARY KEY , name VARCHAR(255) NOT NULL, type VARCHAR(255), status BOOLEAN);");
 }
 
 register_deactivation_hook( __FILE__, 'plgesgi_deactivation' );

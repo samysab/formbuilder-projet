@@ -79,43 +79,38 @@ class plgFormBuilder extends WP_Widget {
 
     public function form($instance){
         // Back
+        global $wpdb;
+        $row = $wpdb->get_results( $wpdb->prepare("SELECT * FROM {$wpdb->prefix}contact_plugin"));
+
         $input1 = isset($instance['input1']) ? $instance['input1'] : '';
-        $select1 = isset($instance['select1']) ? $instance['select1'] : '';
-        $check1 = isset($instance['check1']) ? $instance['check1'] : '';
 
-        $input2 = isset($instance['input2']) ? $instance['input2'] : '';
-        $select2 = isset($instance['select2']) ? $instance['select2'] : '';
-        $check2 = isset($instance['check2']) ? $instance['check2'] : '';
+        for ($i=0; $i <4 ; $i++) { 
 
-        $input3 = isset($instance['input3']) ? $instance['input3'] : '';
-        $select3 = isset($instance['select3']) ? $instance['select3'] : '';
-        $check3 = isset($instance['check3']) ? $instance['check3'] : '';
+            $this->createInput('name'.$i,'select'.$i,'status'.$i, $row[$i]->name, $row[$i]->type, $row[$i]->status);
+            if (isset($_POST['name'.$i]) && !empty($_POST['name'.$i])) {
+                
+                $name = $_POST['name'.$i];
+                $type = $_POST['select'.$i];
+                $status = $_POST['status'.$i];
 
-        $input4 = isset($instance['input4']) ? $instance['input4'] : '';
-        $select4 = isset($instance['select4']) ? $instance['select4'] : '';
-        $check4 = isset($instance['check4']) ? $instance['check4'] : '';
+                $wpdb->insert("{$wpdb->prefix}contact_plugin", array('name' => $name, 'type' => $type, 'status' => $status));
 
-
-        $this->createInput($input1,$select1,$check1);
-        $this->createInput($input2,$select2,$check2);
-        $this->createInput($input3,$select3,$check3);
-        $this->createInput($input4,$select4,$check4);
-
+            }
+        }
 
     }
 
 
-    private function createInput($input,$select,$check){
-
+    private function createInput($input,$select,$check, $nameValue, $typeValue, $checkValue){
         echo '<p><label for="'.$this->get_field_name($input).'"> Nom : </label>
-        <input id="'.$this->get_field_id($input).'" name="'.$this->get_field_name($input).'" type="" value="'.$input.'">
-        <select name="'.$this->get_field_name($select).'">
-            <option value="text" '.(($select=='text')?'selected="selected"':"").'>Texte</option>
-            <option value="email" '.(($select=='email')?'selected="selected"':"").'>Email</option>
-            <option value="number" '.(($select=='number')?'selected="selected"':"").'>Nombre</option>
-            <option value="date" '.(($select=='date')?'selected="selected"':"").'>Date</option>
+        <input id="'.$input.'" name="'.$input.'" type="" value="'.$nameValue.'">
+        <select name="'.$select.'">
+            <option value="text" '.(($typeValue=='text')?'selected="selected"':"").'>Texte</option>
+            <option value="email" '.(($typeValue=='email')?'selected="selected"':"").'>Email</option>
+            <option value="number" '.(($typeValue=='number')?'selected="selected"':"").'>Nombre</option>
+            <option value="date" '.(($typeValue=='date')?'selected="selected"':"").'>Date</option>
         </select> 
-        <input id="'.$this->get_field_id($check).'" name="'.$this->get_field_name($check).'" type="checkbox">
+        <input id="'.$check.'" name="'.$check.'" type="checkbox"'.(($checkValue != null)?'checked':"").'>
         Activer</p>'
         ;
 
