@@ -76,15 +76,27 @@ class plgFormBuilder extends WP_Widget {
         //Formulaire
         echo $before_widget.$before_title.$title.$after_title.'<form action="" method="post">';
 
-        foreach ($row as $input){
+        foreach ($row as $key => $input){
         echo '  <h2 class="widget-title"> ';  echo $input->name;  echo ' </h2>
-                <input class="postform" id="'; echo $input->id; echo '" name="'; echo $input->name;  echo '" type="'; echo $input->type; echo'" placeholder=" ';  echo $input->type;  echo' " >';
+                <input class="postform" id="'; echo $input->id; echo '" name="input'; echo $input->id; echo '" type="'; echo $input->type; echo'" placeholder=" ';  echo $input->type;  echo' " >';
         }
 
         echo '<h2 class="widget-title"> &nbsp; </h2>
-               <input type="submit">
+               <input type="submit" name="submit">
               </form>'.
             $after_widget;
+
+        //Insertion en BDD
+
+        //Verifications
+        if ($_POST['submit']){
+            for ($i = 1; $i <= 4; $i++){
+                if (isset($_POST['input'.$i]) && !empty($_POST['input'.$i]) ){
+                    $inputs[$i] = $_POST['input'.$i];
+                }
+            }
+            $wpdb->insert("{$wpdb->prefix}contact_data", array('field_1' => $inputs["1"], 'field_2' => $inputs["2"], 'field_3' => $inputs["3"], 'field_4' => $inputs["4"]));
+        }
 
     }
 
