@@ -147,4 +147,21 @@ class plgFormBuilder extends WP_Widget {
             }
         }
     }
+
+    public function display_fields(){
+        global $wpdb;
+        $rows = $wpdb->get_results( $wpdb->prepare("SELECT * FROM {$wpdb->prefix}contact_data"));
+
+
+        foreach($rows as $key => $value){
+            echo "<tr>";
+                echo "<td>$value->field_1</td>";
+                echo "<td>$value->field_2</td>";
+                echo "<td>$value->field_3</td>";
+                echo "<td>$value->field_4</td>";
+                echo "<td>$value->field_5</td>";
+            echo "</tr>";
+        }
+
+    }
 }
